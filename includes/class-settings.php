@@ -15,31 +15,31 @@ class FB_WPP_Settings {
 	];
 
 	public static function load_template() {
-		$options = get_option(OPTIONS_SLUG);
+		$options = get_option(FBWPP_OPTIONS_SLUG);
 		$post_types = get_post_types([
 			'public'             => true,
 			'publicly_queryable' => true
 		], 'objects');
 
-		require_once TEMPLATES_DIR . '/settings.php';
+		require_once FBWPP_TEMPLATES_DIR . '/settings.php';
 	}
 
 	public static function admin_init() {
-		register_setting(OPTIONS_GROUP, OPTIONS_SLUG);
+		register_setting(FBWPP_OPTIONS_GROUP, FBWPP_OPTIONS_SLUG);
 	}
 
 	public static function activate() {
-		update_option(OPTIONS_SLUG, self::$data);
+		update_option(FBWPP_OPTIONS_SLUG, self::$data);
 		FB_WPP_Feed::log(200, 'Plugin activated');
 	}
 
 	public static function deactivate() {
-		delete_option(OPTIONS_SLUG);
+		delete_option(FBWPP_OPTIONS_SLUG);
 		FB_WPP_Feed::log(200, 'Plugin de-activated');
 	}
 
 	public static function get_option($name) {
-		$options = get_option(OPTIONS_SLUG);
+		$options = get_option(FBWPP_OPTIONS_SLUG);
 
 		if ($options && isset($options[$name])) {
 			return $options[$name];

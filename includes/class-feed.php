@@ -13,7 +13,7 @@ class FB_WPP_Feed {
 
 		if (!self::validate_settings()) {
 			add_action('admin_notices', function() {
-				require_once TEMPLATES_DIR . '/settings-error.php';
+				require_once FBWPP_TEMPLATES_DIR . '/settings-error.php';
 			});
 		}
 	}
@@ -204,7 +204,7 @@ class FB_WPP_Feed {
 	}
 
 	public static function log($status, $message) {
-		$file = sprintf('%s/%s.log', WP_CONTENT_DIR, OPTIONS_SLUG);
+		$file = sprintf('%s/%s.log', WP_CONTENT_DIR, FBWPP_OPTIONS_SLUG);
 		$message = sprintf("[%s](%s) %s\r\n", date('Y-m-d H:i:s', time()), $status, $message);
 
 		file_put_contents($file, $message, FILE_APPEND);
