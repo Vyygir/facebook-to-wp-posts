@@ -1,0 +1,14 @@
+{
+    "name": "vyygir/wb-to-wpp",
+    "description": "Grab posts from your Facebook page and import them into WordPress",
+    "type": "project",
+    "require": {
+        "facebook/graph-sdk": "^5.6"
+    },
+    "authors": [
+        {
+            "name": "Vyygir",
+            "email": "hi@vyygir.me"
+        }
+    ]
+}
